@@ -1,18 +1,24 @@
 function Mouse() {
   this.x = 0;
   this.y = 0;
+  this.speed = 0.2;
   this.destx = int(random(MazeSize));
   this.desty = int(random(MazeSize));
   
   this.Move = function() {
-    if (this.x < this.destx) {
-      this.x++;
-    } else if (this.x > this.destx) {
-      this.x--;
-    } else if (this.y < this.desty) {
-      this.y++;
-    } else if (this.y > this.desty) {
-      this.y--; 
+    if (floor(this.x) < this.destx) {
+      this.x+=this.speed;
+    } else if (floor(this.x) > this.destx) {
+      this.x-=this.speed;
+    } else if (floor(this.y) < this.desty) {
+      this.x = floor(this.x);
+      this.y+=this.speed;
+    } else if (floor(this.y) > this.desty) {
+      this.x = floor(this.x);
+      this.y-=this.speed; 
+    } else {
+      this.x = floor(this.x);
+      this.y = floor(this.y);
     }
 
   }

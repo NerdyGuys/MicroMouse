@@ -6,7 +6,7 @@ var MazeColor;
 
 var TheMouse;
 var MouseColor;
-var MouseWidth = 30;
+var MouseWidth = 40;
 var MouseHeight = 40;
 
 var WallSize = 4;
@@ -40,7 +40,7 @@ function setup() {
 
 function draw() {
   background(0);
-  frameRate(1);
+  frameRate(30);
   for (var x = 0; x < MazeSize; x++){
     for (var y = 0; y < MazeSize; y++){
       TheMaze[x][y].DrawSq();
