@@ -61,7 +61,7 @@ function CreateWall(){
   for (var row=0; row<MazeSize+1; row++){
     HorizontalWall[row] = [];
     for (var col=0; col<MazeSize; col++){
-      if (random(3) > 1) HorizontalWall[row][col] = true;
+      if (random(5) < 2) HorizontalWall[row][col] = true;
       else HorizontalWall[row][col] = false;
     }
   }
@@ -69,7 +69,7 @@ function CreateWall(){
   for (var row=0; row<MazeSize; row++){
     VerticalWall[row] = [];
     for (var col=0; col<MazeSize+1; col++){
-      if (random(3) > 1) VerticalWall[row][col] = true;
+      if (random(5) < 2) VerticalWall[row][col] = true;
       else VerticalWall[row][col] = false;
       //print(VerticalWall[row][col]);
     }
