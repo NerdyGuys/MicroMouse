@@ -13,10 +13,11 @@ function Maze() {
     rect(this.x*SquareSize+OffSet,this.y*SquareSize+OffSet,SquareSize,SquareSize);
     textSize(25);
     textAlign(CENTER,CENTER);
-    fill(155);
     if (this.x==0 && this.y==0){
+      fill(155);
       text("S",(this.x+0.5)*SquareSize+OffSet,(this.y+0.5)*SquareSize+OffSet); 
     } else if ((this.x == MazeSize/2 || this.x == MazeSize/2-1)&&(this.y == MazeSize/2 || this.y == MazeSize/2-1)){
+      fill(155,0,0);
       text("G",(this.x+0.5)*SquareSize+OffSet,(this.y+0.5)*SquareSize+OffSet); 
     } 
   }
