@@ -36,7 +36,8 @@ function setup() {
       //TheMaze[y][x].West = Walls[y][x][3];
     }
   }
-  loadStrings("http://www.dangnamkhanh.com/MicroMouse/mazes/a.txt", LoadWall);
+  var selectmatrix = ListofMatrices[Math.floor(Math.random()*ListofMatrices.length)];
+  loadStrings("http://www.dangnamkhanh.com/MicroMouse/mazes/"+selectmatrix, LoadWall);
   console.log(TheMaze);
   MouseColor = color(255,0,0,123);
   TheMouse = new Mouse();
