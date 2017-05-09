@@ -72,27 +72,28 @@ function LoadWall(data){
   //var f =  new File([""],file);
   //f.open("r");
   //var str = "";
+  //for (var row=MazeSize-1; row>=0; row--){
   for (var row=0; row<MazeSize; row++){
     //Walls[row] = [];
     for (var col=0; col<MazeSize; col++){
       //Walls[row][col] = [];
       //for (var i=0; i<4; i++){
-	 s = (data[0+col*4+row*64]);
+	 s = (data[3+col*4+row*64]);
 	 if (s=="1")
 		TheMaze[row][col].North = true;
 	 else
 		TheMaze[row][col].North = false;
-	 s = (data[1+col*4+row*64]);
+	 s = (data[0+col*4+row*64]);
 	 if (s=="1")
 		TheMaze[row][col].East = true;
 	 else
 		TheMaze[row][col].East = false;
-	 s = (data[2+col*4+row*64]);
+	 s = (data[1+col*4+row*64]);
 	 if (s=="1")
 		TheMaze[row][col].South = true;
 	 else
 		TheMaze[row][col].South = false;
-	 s = (data[3+col*4+row*64]);
+	 s = (data[2+col*4+row*64]);
 	 if (s=="1")
 		TheMaze[row][col].West = true;
 	 else
