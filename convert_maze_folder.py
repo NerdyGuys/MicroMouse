@@ -18,6 +18,12 @@ if __name__ == "__main__":
       new_filename = prefix + '.txt'
       print new_filename
       f = open(new_filename, 'w')
+      i = 0
       for b in bits(open(filename, 'r')):
-        f.write("%s\n" % b)
+        if (i<7):
+          i=i+1
+        else:
+          i=0
+        if (i<4):
+          f.write("%s\n" % b)
       f.close()

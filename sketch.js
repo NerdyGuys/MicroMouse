@@ -11,8 +11,7 @@ var MouseHeight = 0.8*SquareSize;
 var WallSize = 4;
 var OffSet;
 var WallColor;
-var VerticalWall = [];
-var HorizontalWall = [];
+var Walls= [];
 
 var moveX = 0;
 var moveY = 0;
@@ -24,20 +23,21 @@ function setup() {
   OffSet = WallSize/2;
   MazeColor = color(220,220,220);
   WallColor = color(255,0,0);
-  CreateWall();
+  //LoadWall("./mazes/a.txt");
   for (var y = 0; y < MazeSize; y++){
     TheMaze[y]=[];
     for (var x = 0; x < MazeSize; x++){
       TheMaze[y][x] = new Maze();
       TheMaze[y][x].x = x;
       TheMaze[y][x].y = y;
-      TheMaze[y][x].North = HorizontalWall[y][x];
-      TheMaze[y][x].East = VerticalWall[y][x+1];
-      TheMaze[y][x].South = HorizontalWall[y+1][x];
-      TheMaze[y][x].West = VerticalWall[y][x];
-      
+      //TheMaze[y][x].North = Walls[y][x][0];
+      //TheMaze[y][x].East = Walls[y][x][1];
+      //TheMaze[y][x].South = Walls[y][x][2];
+      //TheMaze[y][x].West = Walls[y][x][3];
     }
   }
+  loadStrings("http://www.dangnamkhanh.com/MicroMouse/mazes/a.txt", LoadWall);
+  console.log(TheMaze);
   MouseColor = color(255,0,0,123);
   TheMouse = new Mouse();
 
@@ -67,22 +67,39 @@ function draw() {
 }
 
 
-function CreateWall(){
+function LoadWall(data){
   // HorizontalWall
-  for (var row=0; row<MazeSize+1; row++){
-    HorizontalWall[row] = [];
-    for (var col=0; col<MazeSize; col++){
-      if (random(5) < 2) HorizontalWall[row][col] = true;
-      else HorizontalWall[row][col] = false;
-    }
-  }
-  //VerticalWall
+  //var f =  new File([""],file);
+  //f.open("r");
+  //var str = "";
   for (var row=0; row<MazeSize; row++){
-    VerticalWall[row] = [];
-    for (var col=0; col<MazeSize+1; col++){
-      if (random(5) < 2) VerticalWall[row][col] = true;
-      else VerticalWall[row][col] = false;
-      //print(VerticalWall[row][col]);
+    //Walls[row] = [];
+    for (var col=0; col<MazeSize; col++){
+      //Walls[row][col] = [];
+      //for (var i=0; i<4; i++){
+	 s = (data[0+col*4+row*64]);
+	 if (s=="1")
+		TheMaze[row][col].West = true;
+	 else
+		TheMaze[row][col].West = false;
+	 s = (data[1+col*4+row*64]);
+	 if (s=="1")
+		TheMaze[row][col].South = true;
+	 else
+		TheMaze[row][col].South = false;
+	 s = (data[2+col*4+row*64]);
+	 if (s=="1")
+		TheMaze[row][col].East = true;
+	 else
+		TheMaze[row][col].East = false;
+	 s = (data[3+col*4+row*64]);
+	 if (s=="1")
+		TheMaze[row][col].North = true;
+	 else
+		TheMaze[row][col].North = false;
+		//Walls[row][col][i] = false;
+	 //console.log(s);
+      //}
     }
   }
 
