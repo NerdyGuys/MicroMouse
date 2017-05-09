@@ -24,6 +24,6 @@ if __name__ == "__main__":
           i=i+1
         else:
           i=0
-        if (i<4):
+        if (i<8):
           f.write("%s\n" % b)
       f.close()
