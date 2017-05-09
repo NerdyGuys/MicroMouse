@@ -77,7 +77,7 @@ function LoadWall(data){
     for (var col=0; col<MazeSize; col++){
       //Walls[row][col] = [];
       //for (var i=0; i<4; i++){
-	 s = (data[0+col*4+row*64]);
+	 s = (data[2+col*4+row*64]);
 	 if (s=="1")
 		TheMaze[row][col].West = true;
 	 else
@@ -87,7 +87,7 @@ function LoadWall(data){
 		TheMaze[row][col].South = true;
 	 else
 		TheMaze[row][col].South = false;
-	 s = (data[2+col*4+row*64]);
+	 s = (data[0+col*4+row*64]);
 	 if (s=="1")
 		TheMaze[row][col].East = true;
 	 else
