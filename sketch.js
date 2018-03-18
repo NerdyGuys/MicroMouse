@@ -37,7 +37,7 @@ function setup() {
     }
   }
   var selectmatrix = ListofMatrices[7];
-  loadStrings("http://www.dangnamkhanh.com/MicroMouse/mazes/"+selectmatrix, LoadWall);
+  loadStrings("http://www.dangnamkhanh.com/repos/uMouse/mazes/"+selectmatrix, LoadWall);
   console.log(TheMaze);
   MouseColor = color(255,0,0,123);
   TheMouse = new Mouse();
