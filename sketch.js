@@ -36,7 +36,8 @@ function setup() {
       //TheMaze[y][x].West = Walls[y][x][3];
     }
   }
-  var selectmatrix = ListofMatrices[7];
+  //var selectmatrix = ListofMatrices[7];
+  var selectmatrix = ListofMatrices[Math.floor(Math.random()*ListofMatrices.length)];
   loadStrings("http://www.dangnamkhanh.com/repos/uMouse/mazes/"+selectmatrix, LoadWall);
   console.log(TheMaze);
   MouseColor = color(255,0,0,123);
@@ -56,7 +57,7 @@ function draw() {
     for (var y = 0; y < MazeSize; y++){
       TheMaze[y][x].DrawWall();
     }
-  } 
+  }
   TheMouse.Display();
   //TheMouse.XYMove();
   //
@@ -117,14 +118,14 @@ function LoadWall(data){
   //rect(820,380,160,160);
   //rect(820,560,160,160);
   //rect(820,740,160,70);
-  //fill(0); 
+  //fill(0);
   //textSize(35);
-  //textAlign(CENTER,CENTER);    
-  //text("UP",900,100); 
-  //text("DOWN",900,280); 
-  //text("LEFT",900,460); 
-  //text("RIGHT",900,640); 
-  //text("RESET",900,775); 
+  //textAlign(CENTER,CENTER);
+  //text("UP",900,100);
+  //text("DOWN",900,280);
+  //text("LEFT",900,460);
+  //text("RIGHT",900,640);
+  //text("RESET",900,775);
 /*} */
 
 function CheckWin() {
@@ -136,7 +137,7 @@ function CheckWin() {
     fill(255,255,255,183);
     rect(0,0,width,height);
     textSize(85);
-    textAlign(CENTER,CENTER);      
+    textAlign(CENTER,CENTER);
     fill(255,0,0);
     text("YOU WIN!",width/2,height/2);
   }
@@ -165,7 +166,7 @@ function mousePressed() {
       TheMouse.y = 0;
       moveX = 0;
       moveY = 0;
-    }      
+    }
   } else {
     moveX = 0;
     moveY = 0;
@@ -195,5 +196,5 @@ function keyPressed() {
     TheMouse.y = 0;
     moveX = 0;
     moveY = 0;
-  }              
+  }
 }
